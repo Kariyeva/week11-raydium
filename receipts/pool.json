@@ -1,0 +1,63 @@
+{
+  "network": "devnet",
+  "programId": "DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH",
+  "poolId": "7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU",
+  "configId": "CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu",
+  "tradeFeePercent": 0.25,
+  "tickSpacing": 60,
+  "initialPrice": "1",
+  "mintA": "v29V4VzrjQkuxGVvToPLFKwDMLr6i5zdhRsYJXdyCps",
+  "mintB": "HrABhekXByAgF4hzAtqyEuR2M3a7aZJ3EHuZ9ZeMD28F",
+  "explorer": "https://explorer.solana.com/address/7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU?cluster=devnet",
+  "signature": "5HDYifqQQaYAq1oG7q5LidcM3QMGLLw6VUd7zkEGErsKLXifdeLXGmfMn1W79yXtf2U3n1aHJrgdL8fmT1USxkDw",
+  "accounts": {
+    "poolId": "7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU",
+    "observationId": "7mMEUZxjqBMMrpJQMm1nA73DZx1iajkCybie157aa5ZW",
+    "exBitmapAccount": "C1aCqY3YXcy6BQfAP1cpAYhYuqK86KjYZ7BzdM5BTSNB",
+    "mintA": {
+      "chainId": 101,
+      "address": "v29V4VzrjQkuxGVvToPLFKwDMLr6i5zdhRsYJXdyCps",
+      "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "logoURI": "",
+      "symbol": "TOKEN_B",
+      "name": "Token B",
+      "decimals": 6,
+      "tags": [],
+      "extensions": {}
+    },
+    "mintB": {
+      "chainId": 101,
+      "address": "HrABhekXByAgF4hzAtqyEuR2M3a7aZJ3EHuZ9ZeMD28F",
+      "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "logoURI": "",
+      "symbol": "TOKEN_A",
+      "name": "Token A",
+      "decimals": 6,
+      "tags": [],
+      "extensions": {}
+    },
+    "mintAProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "mintBProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "mintAVault": "H8LpXY4Ngwakq5ygmeZk8aUnqv3baKCTVVedbfZBBzvp",
+    "mintBVault": "75pFmwDqZoJSF1rM1wgrysLZ5cCmKsSWwK1dPDmG3hH1",
+    "programId": "DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH",
+    "id": "7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU",
+    "openTime": "0",
+    "vault": {
+      "A": "H8LpXY4Ngwakq5ygmeZk8aUnqv3baKCTVVedbfZBBzvp",
+      "B": "75pFmwDqZoJSF1rM1wgrysLZ5cCmKsSWwK1dPDmG3hH1"
+    },
+    "rewardInfos": [],
+    "config": {
+      "id": "CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu",
+      "index": 0,
+      "protocolFeeRate": 120000,
+      "tradeFeeRate": 2500,
+      "tickSpacing": 60,
+      "fundFeeRate": 40000,
+      "description": "Week 11 Devnet CLMM",
+      "defaultRange": 0,
+      "defaultRangePoint": []
+    }
+  }
+}

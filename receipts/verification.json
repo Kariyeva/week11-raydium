@@ -1,0 +1,57 @@
+{
+  "network": "devnet",
+  "checkedAt": "2026-10-29T15:19:18.644Z",
+  "checksPassed": 10,
+  "poolId": "7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU",
+  "personalPosition": "6C7TfUSnzTsd514ewTnKBE1CzQv8JjxY8N2r9uKvCRHp",
+  "currentPrice": "1",
+  "priceLower": "0.89763244330945058506",
+  "priceUpper": "1.1007537807153331814",
+  "liquidity": "21338374629",
+  "vaultA": "H8LpXY4Ngwakq5ygmeZk8aUnqv3baKCTVVedbfZBBzvp",
+  "vaultB": "75pFmwDqZoJSF1rM1wgrysLZ5cCmKsSWwK1dPDmG3hH1",
+  "vaultAmountA": "1000",
+  "vaultAmountB": "1121.658824",
+  "checks": [
+    {
+      "label": "Пул принадлежит программе Raydium CLMM",
+      "passed": true
+    },
+    {
+      "label": "Позиция принадлежит программе Raydium CLMM",
+      "passed": true
+    },
+    {
+      "label": "Токены и конфигурация пула совпадают",
+      "passed": true
+    },
+    {
+      "label": "Позиция связана с нужным пулом и NFT",
+      "passed": true
+    },
+    {
+      "label": "NFT позиции находится у владельца",
+      "passed": true
+    },
+    {
+      "label": "Ликвидность позиции положительная",
+      "passed": true
+    },
+    {
+      "label": "Границы позиции совпадают и кратны шагу тиков",
+      "passed": true
+    },
+    {
+      "label": "Текущая цена внутри диапазона, ликвидность активна",
+      "passed": true
+    },
+    {
+      "label": "Оба хранилища содержат нужные токены",
+      "passed": true
+    },
+    {
+      "label": "Суммы в кошельке и пуле равны выпуску",
+      "passed": true
+    }
+  ]
+}

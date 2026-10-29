@@ -1,88 +1,136 @@
-# RAYDIUM SDK V2 demo
+# Задание 11 — пул и позиция Raydium CLMM
 
-## About the project
+Кариева Карина. AlmaU.
 
-This project is for [RAYDIUM SDK V2](https://github.com/raydium-io/raydium-sdk-V2) demonstration
+## Цель работы
 
-## Getting Started
+Создать два тестовых SPL-токена в Solana Devnet, создать пул Raydium CLMM
+и открыть позицию ликвидности из собственного кошелька.
 
-### Installation
+## Что выполнено
 
-`yarn install`
+1. Созданы Token A и Token B: по 1 000 000 токенов, 6 знаков после запятой.
+2. Создан пул Raydium CLMM с начальной ценой 1:1.
+3. Выбрана конфигурация с комиссией обменов 0.25% и шагом тиков 60.
+4. Открыта позиция и внесена ликвидность в обоих токенах.
+5. Проверены аккаунты пула, NFT позиции, диапазон и балансы.
 
-this will install the dependencies for running the demo script
+Использована программа Raydium CLMM:
+[DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH](https://explorer.solana.com/address/DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH?cluster=devnet).
 
-### Prerequisites
+## Цена и выбранный диапазон
 
-Modify `config.ts.template` to fit your configuration, and rename it to `config.ts`
+Цена при открытии: **1 Mint B за 1 Mint A**.
 
-- `<YOUR_WALLET_SECRET_KEY>`: replace to your own one
-- `<YOUR_RPC_URL>`: replace to your prefer one
-- `<API_HOST>`: by default it's no needed to provide raydium api host, only provide it when test on devnet.
+Границы позиции: **0.89763244330945058506–1.1007537807153331814**.
 
-### Usage
+Тики: **-1080** и **960**.
 
-- `yarn dev src/<FOLDER>/<SCRIPT_NAME>` run the specific demo script, e.g. yarn dev src/cpmm/deposit.ts. **Note: if you want to execute tx, remember to uncomment code in last line**
-- `yarn clmm-market 8sLbNZoA1cfnvMJLPfp98ZLAnFSYCFApfJKMbiXNLwxj 10 20` run clmm market maker, arguments 0: poolId, 1: create position deviation, 2: close position deviation, remember to uncomment `close position` and `create new position` code part
+Я выбрала диапазон примерно от 0.9 до 1.1 вокруг начальной цены 1.
+Это позволяет разместить ликвидность рядом с текущей ценой и оставить
+запас для её изменения. Границы округлены наружу до допустимых тиков,
+кратных 60. При выходе цены из диапазона позиция перестанет предоставлять
+активную ликвидность до возвращения цены в диапазон.
 
-### Sdk Methods
+Цена на момент итоговой проверки: **1**.
 
-#### Transaction methods return data
+## Внесённая ликвидность
 
-all transaction related build function (e.g. await raydium.clmm.openPositionFromBase/ await raydium.cpmm.createPool ..etc) will return all transactions and instructions
+| Параметр | Результат |
+|---|---|
+| Mint A в пуле | 1000 |
+| Mint B в пуле | 1121.658824 |
+| Ликвидность позиции, внутренние единицы CLMM | 21338374629 |
+| Итоговая проверка | 10 из 10 проверок пройдены |
 
+В скрипте открытия для второго токена задан максимальный расход
+с запасом 1%. Фактически в пул поступили суммы, указанные в таблице.
+
+Raydium сортирует mint-адреса. Поэтому Mint A пула соответствует
+созданному Token B, а Mint B пула — созданному Token A.
+Обозначения Token A и Token B используются в проекте;
+отдельные метаданные названий для этих SPL-токенов не создавались.
+
+## Адреса Devnet
+
+| Аккаунт | Ссылка |
+|---|---|
+| Кошелёк владельца | [GCELxq8keKXzd1Q27D9KzW5z2nw6JzLHyHH592okLfoy](https://explorer.solana.com/address/GCELxq8keKXzd1Q27D9KzW5z2nw6JzLHyHH592okLfoy?cluster=devnet) |
+| Созданный Token A | [HrABhekXByAgF4hzAtqyEuR2M3a7aZJ3EHuZ9ZeMD28F](https://explorer.solana.com/address/HrABhekXByAgF4hzAtqyEuR2M3a7aZJ3EHuZ9ZeMD28F?cluster=devnet) |
+| Созданный Token B | [v29V4VzrjQkuxGVvToPLFKwDMLr6i5zdhRsYJXdyCps](https://explorer.solana.com/address/v29V4VzrjQkuxGVvToPLFKwDMLr6i5zdhRsYJXdyCps?cluster=devnet) |
+| Пул | [7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU](https://explorer.solana.com/address/7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU?cluster=devnet) |
+| Конфигурация | [CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu](https://explorer.solana.com/address/CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu?cluster=devnet) |
+| Хранилище Mint A | [H8LpXY4Ngwakq5ygmeZk8aUnqv3baKCTVVedbfZBBzvp](https://explorer.solana.com/address/H8LpXY4Ngwakq5ygmeZk8aUnqv3baKCTVVedbfZBBzvp?cluster=devnet) |
+| Хранилище Mint B | [75pFmwDqZoJSF1rM1wgrysLZ5cCmKsSWwK1dPDmG3hH1](https://explorer.solana.com/address/75pFmwDqZoJSF1rM1wgrysLZ5cCmKsSWwK1dPDmG3hH1?cluster=devnet) |
+| Аккаунт позиции | [6C7TfUSnzTsd514ewTnKBE1CzQv8JjxY8N2r9uKvCRHp](https://explorer.solana.com/address/6C7TfUSnzTsd514ewTnKBE1CzQv8JjxY8N2r9uKvCRHp?cluster=devnet) |
+| NFT mint позиции | [6y2pJ2zcMYQmMCZrnn3t92Bma9ySsXdrJbGRJRp3Ntgj](https://explorer.solana.com/address/6y2pJ2zcMYQmMCZrnn3t92Bma9ySsXdrJbGRJRp3Ntgj?cluster=devnet) |
+| Токеновый аккаунт NFT | [Gsjpch7tktd3exvXokvb3agNS2evgZs8BZ8mHrG5hzHW](https://explorer.solana.com/address/Gsjpch7tktd3exvXokvb3agNS2evgZs8BZ8mHrG5hzHW?cluster=devnet) |
+| Нижний массив тиков | [8zzUiXkmFFvCy5ofvtfJszdH2F6JYoSZ2YYqejhVjagr](https://explorer.solana.com/address/8zzUiXkmFFvCy5ofvtfJszdH2F6JYoSZ2YYqejhVjagr?cluster=devnet) |
+| Верхний массив тиков | [7n5P42parbG2MULS22Gkc2PxJsb6AN793iGPTr6EKRMo](https://explorer.solana.com/address/7n5P42parbG2MULS22Gkc2PxJsb6AN793iGPTr6EKRMo?cluster=devnet) |
+
+Позиция оставлена открытой. Её адреса сохранены для следующих заданий.
+
+## Транзакции
+
+- Создание пула: [Открыть транзакцию](https://explorer.solana.com/tx/5HDYifqQQaYAq1oG7q5LidcM3QMGLLw6VUd7zkEGErsKLXifdeLXGmfMn1W79yXtf2U3n1aHJrgdL8fmT1USxkDw?cluster=devnet).
+- Открытие позиции: [Открыть транзакцию](https://explorer.solana.com/tx/39dTtyyeEk1uhFhnv7L2f3NfgXWgyrVThGZCG5MCUpQrTRdv6ZZP43kxphgAPsuVk6v5gKN5PBpwKJyP9nvAR8iC?cluster=devnet).
+
+Транзакции создания токенов сохранены в `receipts/tokens.json`.
+
+## Скрипты и результаты
+
+- `scripts/01-create-tokens.cjs` — создание и выпуск тестовых токенов.
+- `scripts/02-create-pool.cjs` — создание пула.
+- `scripts/03-open-position.cjs` — открытие позиции и проверка NFT.
+- `scripts/04-verify.cjs` — итоговая проверка без отправки транзакций.
+- `scripts/patch-raydium.cjs` — исправление чтения пустого списка массивов тиков в SDK.
+- `receipts/` — публичные адреса, подписи транзакций и результаты проверок.
+
+## Запуск
+
+Использованы Node.js 22, Yarn 1.22.22 и Raydium SDK V2 0.2.75-alpha.
+
+```bash
+yarn install --frozen-lockfile
+node scripts/patch-raydium.cjs
+cp .env.example .env
 ```
-const { execute, transaction, builder, extInfo } = await raydium.clmm.openPositionFromBase({ xxx })
 
+Рабочий RPC указывается в локальном `.env`.
+Скрипты читают кошелёк из `/home/huawei/.config/solana/id.json`.
+На другом компьютере этот путь нужно заменить на путь к своему кошельку.
+
+Порядок первоначального создания:
+
+```bash
+node --env-file=.env scripts/01-create-tokens.cjs
+node --env-file=.env scripts/02-create-pool.cjs
+node --env-file=.env scripts/03-open-position.cjs
+node --env-file=.env scripts/04-verify.cjs
 ```
 
-- `transaction or transactions`: all built transactions
-- `builder`: all instructions in transaction. e.g. builder.allInstructions, builder.AllTxData
-- `extInfo`: transaction related publicKeys. (e.g: extInfo from raydium.cpmm.createPool includes poolId, programId...etc)
+Для проверки уже созданного пула и позиции достаточно:
 
-#### Fetch pool list by mints (mainnet only)
-
-```
-import { PoolFetchType } from '@raydium-io/raydium-sdk-v2'
-
-const list = await raydium.api.fetchPoolByMints({
-  mint1: '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R', // required
-  mint2: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // optional
-  type: PoolFetchType.All, // optional
-  sort: 'liquidity', // optional
-  order: 'desc', // optional
-  page: 1, // optional
-})
+```bash
+node --env-file=.env scripts/04-verify.cjs
 ```
 
-### Fetch Mint info from Api or Rpc
+После внесения ликвидности повторно запускать создание токенов не требуется.
+Файлы `.env` и `keys/` исключены из Git.
 
-```
-await raydium.token.getTokenInfo('<Mint address>')
-```
+## Особенность SDK
 
-### Fetch token account
+При чтении нового пула SDK обращался к отсутствующему списку массивов тиков.
+Скрипт `patch-raydium.cjs` добавляет обработку пустого списка.
+После переустановки зависимостей исправление нужно применить повторно.
 
-```
-await raydium.account.fetchWalletTokenAccounts() // if need to force fetching token account, pass param { forceUpdate: true }
-```
+## Скриншоты
 
-### More api methods [check here](https://github.com/raydium-io/raydium-sdk-V2?tab=readme-ov-file#api-methods-httpsgithubcomraydium-ioraydium-sdk-v2blobmastersrcapiapits)
+Скриншоты создания токенов, пула, позиции и итоговой проверки будут добавлены после загрузки проекта.
 
-### FAQ
+## Исходный проект
 
-#### Error: block height exceeded / exceeded CUs meter at BPF instruction
-
-- transactions were expired, set higher priority fees (computeBudgetConfig) to make it go through smoothly
-- if you are testing in devnet, remember to replace programId to devnet one.
-
-#### raydium.api.fetchPoolById/raydium.api.fetchFarmInfoById return null
-
-- currently api doesn't support devnet pool/farm data, please test on mainnet.
-- only raydium.xxxx.getRpcPoolInfos support get devnet `rpc` pool info.
-- new created pool needs couple minutes to sync data to api, if you want to get info immediately, use raydium.xxxx.getRpcPoolInfos instead.
-
-#### create amm pool error
-
-- `0x10001a9`: you might use https://openbook-tools.dexlab.space/market/create?network=devnet to create devnet market, and they used wrong devnet program id, so please use createMarket.ts in demo to create market
-- `lp amount is too less`: please provide more base/quote amount when create pool, if there's SOL/WSOL in your market, it's better provide more than 4 sol(4\*10\*\*9) in initial amount.
+Работа выполнена на основе
+[официального Raydium SDK V2 Demo](https://github.com/raydium-io/raydium-sdk-V2-demo).
+Исходное описание сохранено в `README.upstream.md`.
+В исходном проекте указана лицензия GPL-3.0.

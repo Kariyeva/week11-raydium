@@ -1,0 +1,20 @@
+{
+  "network": "devnet",
+  "status": "verified",
+  "poolId": "7z3nKcJrf1ReUBtrCMQRTKGDCQ7fYsZEnoVkhP7vC6AU",
+  "owner": "GCELxq8keKXzd1Q27D9KzW5z2nw6JzLHyHH592okLfoy",
+  "nftMint": "6y2pJ2zcMYQmMCZrnn3t92Bma9ySsXdrJbGRJRp3Ntgj",
+  "personalPosition": "6C7TfUSnzTsd514ewTnKBE1CzQv8JjxY8N2r9uKvCRHp",
+  "tickArrayLower": "8zzUiXkmFFvCy5ofvtfJszdH2F6JYoSZ2YYqejhVjagr",
+  "tickArrayUpper": "7n5P42parbG2MULS22Gkc2PxJsb6AN793iGPTr6EKRMo",
+  "tickLower": -1080,
+  "tickUpper": 960,
+  "priceAtOpen": "1",
+  "priceLower": "0.89763244330945058506",
+  "priceUpper": "1.1007537807153331814",
+  "baseAmount": "1000000000",
+  "otherAmountMax": "1132875413",
+  "signature": "39dTtyyeEk1uhFhnv7L2f3NfgXWgyrVThGZCG5MCUpQrTRdv6ZZP43kxphgAPsuVk6v5gKN5PBpwKJyP9nvAR8iC",
+  "liquidity": "21338374629",
+  "nftAccount": "Gsjpch7tktd3exvXokvb3agNS2evgZs8BZ8mHrG5hzHW"
+}

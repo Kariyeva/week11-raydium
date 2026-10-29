@@ -1,0 +1,26 @@
+[
+  {
+    "id": "CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu",
+    "index": 0,
+    "tickSpacing": 60,
+    "tradeFeeRate": 2500,
+    "protocolFeeRate": 120000,
+    "fundFeeRate": 40000
+  },
+  {
+    "id": "F8aaMZVpXaQHk3Qo9BPDhsa7RgpfrfiRsk8L3iXnq3AT",
+    "index": 1,
+    "tickSpacing": 1,
+    "tradeFeeRate": 100,
+    "protocolFeeRate": 120000,
+    "fundFeeRate": 40000
+  },
+  {
+    "id": "FZdkW5jiYsjTnCVqFqPrxrQisQkCYrohd7ArZhoKnM8q",
+    "index": 2,
+    "tickSpacing": 10,
+    "tradeFeeRate": 500,
+    "protocolFeeRate": 120000,
+    "fundFeeRate": 40000
+  }
+]
